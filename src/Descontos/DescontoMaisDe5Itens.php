@@ -6,12 +6,12 @@ use Alura\DesignPattern\Orcamento;
 
 class DescontoMaisDe5Itens extends Desconto
 {
-    public function handle(Orcamento $orcamento): float
+    public function calcularDesconto(Orcamento $orcamento)
     {
         if ($orcamento->quantidadeItems > 5) {
             return $orcamento->valor * 0.05;
         }
 
-        return parent::handle($orcamento);
+        return $this->proximoDesconto->calcularDesconto($orcamento);
     }
 }

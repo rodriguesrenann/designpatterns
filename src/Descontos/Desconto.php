@@ -4,21 +4,14 @@ namespace Alura\DesignPattern\Descontos;
 
 use Alura\DesignPattern\Orcamento;
 
-abstract class Desconto implements DescontoInterface
+abstract class Desconto
 {
-    protected DescontoInterface $proximoDesconto;
+    protected ?Desconto $proximoDesconto;
 
-    public function setNext(DescontoInterface $proximoDesconto)
+    public function __construct(?Desconto $proximoDesconto)
     {
         $this->proximoDesconto = $proximoDesconto;
     }
 
-    public function handle(Orcamento $orcamento): float
-    {
-        if ($this->proximoDesconto) {
-            return $this->proximoDesconto->handle($orcamento);
-        }
-
-        return null;
-    }
+    abstract public function calcularDesconto(Orcamento $orcamento);
 }
