@@ -6,6 +6,7 @@ use Alura\DesignPattern\CalculadoraDeDescontos;
 use Alura\DesignPattern\Orcamento;
 use Alura\DesignPattern\CalculadoraDeImpostos;
 use Alura\DesignPattern\Impostos\ImpostoICMS;
+use Alura\DesignPattern\Impostos\ImpostoIKCV;
 use Alura\DesignPattern\Impostos\ImpostoIPPS;
 use Alura\DesignPattern\Impostos\ImpostoIPS;
 
@@ -23,11 +24,11 @@ $orcamento->valor = 600;
 echo $calculadoraDeDescontos->calculaDesconto($orcamento); */
 
 $orcamento = new Orcamento;
-$orcamento->valor = 100;
+$orcamento->valor = 1800;
 $orcamento->quantidadeItems = 5;
 
-$calculadoraDeDescontos = new CalculadoraDeDescontos;
+/*$calculadoraDeDescontos = new CalculadoraDeDescontos;
 echo $calculadoraDeDescontos->calculaDesconto($orcamento);
-
-/* $calculadoraDeImpostos = new CalculadoraDeImpostos($orcamento);
-echo $calculadoraDeImpostos->calcula(new ImpostoICMS(new ImpostoIPS(new ImpostoIPPS()))); */
+ */
+$calculadoraDeImpostos = new CalculadoraDeImpostos($orcamento);
+echo $calculadoraDeImpostos->calcula(new ImpostoIPS(new ImpostoIPPS(new ImpostoICMS())));

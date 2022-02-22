@@ -13,11 +13,11 @@ class ImpostoIKCV extends ImpostoAliquotaDupla
 
     protected function calcularTaxaMaxima(Orcamento $orcamento): float
     {
-        return $orcamento->valor * 0.09;
+        return $orcamento->valor * 0.08;
     }
 
     protected function calcularTaxaMinima(Orcamento $orcamento): float
     {
-        return $orcamento->valor * 0.05;
+        return $orcamento->valor * 0.03;
     }
 }

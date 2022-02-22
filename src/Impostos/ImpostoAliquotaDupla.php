@@ -16,8 +16,7 @@ abstract class ImpostoAliquotaDupla extends Imposto
     }
 
     abstract protected function deveAplicarTaxaMaxima(Orcamento $orcamento): bool;
-    
     abstract protected function calcularTaxaMaxima(Orcamento $orcamento): float;
-
     abstract protected function calcularTaxaMinima(Orcamento $orcamento): float;
+
 }
